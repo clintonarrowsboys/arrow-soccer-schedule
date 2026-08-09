@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arrow Soccer 2026-27 Schedule | Clinton High School</title>
+<meta name="description" content="Kickoff times for every Clinton Arrow Soccer match, 2026-27 season. Varsity, JV, and Junior High.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0C0C0E;
+    --panel:#141418;
+    --line:#26262E;
+    --bone:#F2EFE9;
+    --muted:#8C8C97;
+    --red:#CB182D;
+    --red-dim:#7d0f1c;
+    --display:'Archivo Black',system-ui,sans-serif;
+    --body:'Archivo',system-ui,-apple-system,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;background:var(--ink);color:var(--bone);
+    font-family:var(--body);font-weight:600;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 18px;}
+
+  /* ---------- masthead ---------- */
+  header.mast{
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#111116 0%,var(--ink) 100%);
+  }
+  .mast-in{display:flex;align-items:center;gap:16px;padding:22px 0 20px;}
+  .crest{width:54px;height:auto;flex:0 0 auto;border-radius:3px;}
+  .word h1{
+    font-family:var(--display);font-size:clamp(26px,6.4vw,40px);
+    line-height:.92;letter-spacing:-.02em;margin:0;text-transform:uppercase;
+  }
+  .word h1 em{font-style:normal;color:var(--red);}
+  .word p{
+    margin:7px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);
+  }
+
+  /* ---------- next match board ---------- */
+  .board{
+    margin:20px 0 6px;border:1px solid var(--line);border-left:4px solid var(--red);
+    background:var(--panel);padding:16px 18px;
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;
+  }
+  .board .flag{
+    font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--red);
+    text-transform:uppercase;width:100%;
+  }
+  .board .fx{font-family:var(--display);font-size:clamp(17px,4.4vw,23px);text-transform:uppercase;letter-spacing:-.01em;}
+  .board .when{font-family:var(--mono);font-size:13px;color:var(--muted);}
+  .board .when b{color:var(--bone);font-weight:500;}
+
+  /* ---------- tabs ---------- */
+  nav.tabs{
+    position:sticky;top:0;z-index:20;background:rgba(12,12,14,.94);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-top:14px;
+  }
+  .tabs-in{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+  .tabs-in::-webkit-scrollbar{display:none;}
+  .tab{
+    appearance:none;background:none;border:0;border-bottom:2px solid transparent;
+    color:var(--muted);font-family:var(--body);font-weight:700;font-size:13px;
+    letter-spacing:.04em;text-transform:uppercase;padding:14px 14px 12px;
+    white-space:nowrap;cursor:pointer;
+  }
+  .tab:first-child{padding-left:0;}
+  .tab:hover{color:var(--bone);}
+  .tab[aria-selected="true"]{color:var(--bone);border-bottom-color:var(--red);}
+  .tab:focus-visible{outline:2px solid var(--red);outline-offset:-2px;}
+
+  /* ---------- schedule ---------- */
+  .count{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);padding:16px 0 4px;
+  }
+  .month{
+    font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--red);padding:22px 0 8px;border-bottom:1px solid var(--line);
+  }
+  .day{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);}
+  .day.past{opacity:.42;}
+  .dbox{
+    flex:0 0 58px;text-align:center;font-family:var(--mono);line-height:1.1;padding-top:2px;
+  }
+  .dbox .dow{display:block;font-size:10px;letter-spacing:.14em;color:var(--muted);}
+  .dbox .num{display:block;font-size:26px;font-weight:600;letter-spacing:-.02em;}
+  .fixtures{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:9px;}
+  .fx-row{display:flex;align-items:center;gap:10px;min-width:0;}
+  .chip{
+    flex:0 0 auto;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;
+    border:1px solid var(--line);color:var(--muted);padding:3px 6px;border-radius:2px;
+    min-width:44px;text-align:center;
+  }
+  .opp{
+    flex:1 1 auto;min-width:0;font-size:15px;letter-spacing:-.01em;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .ha{
+    font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    padding:2px 5px;border-radius:2px;flex:0 0 auto;
+  }
+  .ha.home{background:var(--red);color:#fff;}
+  .ha.away{border:1px solid var(--line);color:var(--muted);}
+  .time{
+    flex:0 0 auto;font-family:var(--mono);font-size:14px;font-weight:500;
+    text-align:right;min-width:66px;font-variant-numeric:tabular-nums;
+  }
+  .time.tbd{color:var(--muted);}
+  .note{
+    font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--red);margin-left:54px;
+  }
+  .empty{padding:40px 0;color:var(--muted);font-size:14px;}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);margin-top:34px;padding:24px 0 46px;}
+  .motto{font-family:var(--display);text-transform:uppercase;font-size:20px;letter-spacing:-.01em;}
+  .motto span{color:var(--red);}
+  footer p{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.7;margin:10px 0 0;letter-spacing:.03em;}
+  .btn{
+    display:inline-block;margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--bone);border:1px solid var(--line);
+    background:none;padding:9px 14px;cursor:pointer;border-radius:2px;
+  }
+  .btn:hover{border-color:var(--red);color:var(--red);}
+
+  @media (max-width:520px){
+    .dbox{flex:0 0 46px;}
+    .dbox .num{font-size:22px;}
+    .opp{font-size:14px;}
+    .note{margin-left:0;}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+
+  @media print{
+    body{background:#fff;color:#000;}
+    nav.tabs,.btn,.board{display:none;}
+    .day{border-color:#ccc;} .month{color:#000;border-color:#000;}
+    .chip,.ha.away{border-color:#999;color:#333;}
+    .ha.home{background:#000;color:#fff;}
+    .dbox .dow,.count,footer p{color:#444;}
+    .day.past{opacity:1;}
+  }
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap mast-in">
+    <img class="crest" src="data:image/jpeg;base64,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" alt="Clinton High School crest">
+    <div class="word">
+      <h1>Arrow <em>Soccer</em></h1>
+      <p>2026&ndash;27 Schedule &middot; Clinton High School</p>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="board" id="board" hidden>
+    <span class="flag">Next match</span>
+    <span class="fx" id="board-fx"></span>
+    <span class="when" id="board-when"></span>
+  </div>
+</div>
+
+<nav class="tabs" aria-label="Filter schedule by team">
+  <div class="wrap tabs-in" role="tablist">
+    <button class="tab" role="tab" data-filter="all" aria-selected="true">All teams</button>
+    <button class="tab" role="tab" data-filter="boys" aria-selected="false">Boys</button>
+    <button class="tab" role="tab" data-filter="girls" aria-selected="false">Girls</button>
+    <button class="tab" role="tab" data-filter="varsity" aria-selected="false">Varsity</button>
+    <button class="tab" role="tab" data-filter="jv" aria-selected="false">JV</button>
+    <button class="tab" role="tab" data-filter="jh" aria-selected="false">Junior High</button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="count" id="count"></div>
+  <div id="list"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="motto">Show Up <span>Anyway</span></div>
+    <p>
+      Home matches are played at Clinton High School. Times are subject to change &mdash;
+      check the team GroupMe for weather calls and same-day updates.<br>
+      Junior High plays boys only. Some dates are single-gender events and are marked on the row.
+    </p>
+    <button class="btn" onclick="window.print()">Print this schedule</button>
+  </div>
+</footer>
+
+<script>
+const GAMES = [{"iso": "2026-10-26", "dow": "MON", "day": "26", "mon": "OCT", "monthLabel": "October 2026", "opp": "Brandon", "ha": "Home", "team": "JHB", "teamLong": "Junior High Boys", "time": "4:30pm", "note": ""}, {"iso": "2026-10-26", "dow": "MON", "day": "26", "mon": "OCT", "monthLabel": "October 2026", "opp": "Brandon", "ha": "Home", "team": "JVB", "teamLong": "JV Boys", "time": "5:45pm", "note": ""}, {"iso": "2026-10-26", "dow": "MON", "day": "26", "mon": "OCT", "monthLabel": "October 2026", "opp": "Brandon", "ha": "Home", "team": "JVG", "teamLong": "JV Girls", "time": "7:00pm", "note": ""}, {"iso": "2026-10-29", "dow": "THU", "day": "29", "mon": "OCT", "monthLabel": "October 2026", "opp": "Pearl", "ha": "Home", "team": "JHB", "teamLong": "Junior High Boys", "time": "4:30pm", "note": ""}, {"iso": "2026-10-29", "dow": "THU", "day": "29", "mon": "OCT", "monthLabel": "October 2026", "opp": "Pearl", "ha": "Home", "team": "JVB", "teamLong": "JV Boys", "time": "5:45pm", "note": ""}, {"iso": "2026-10-29", "dow": "THU", "day": "29", "mon": "OCT", "monthLabel": "October 2026", "opp": "Pearl", "ha": "Home", "team": "JVG", "teamLong": "JV Girls", "time": "7:00pm", "note": ""}, {"iso": "2026-11-03", "dow": "TUE", "day": "3", "mon": "NOV", "monthLabel": "November 2026", "opp": "Oak Grove", "ha": "Home", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2026-11-03", "dow": "TUE", "day": "3", "mon": "NOV", "monthLabel": "November 2026", "opp": "Oak Grove", "ha": "Home", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2026-11-05", "dow": "THU", "day": "5", "mon": "NOV", "monthLabel": "November 2026", "opp": "Petal", "ha": "Home", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2026-11-05", "dow": "THU", "day": "5", "mon": "NOV", "monthLabel": "November 2026", "opp": "Petal", "ha": "Home", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2026-11-07", "dow": "SAT", "day": "7", "mon": "NOV", "monthLabel": "November 2026", "opp": "Oak Grove (at Northwest Rankin)", "ha": "Away", "team": "JVG", "teamLong": "JV Girls", "time": "TBD", "note": ""}, {"iso": "2026-11-09", "dow": "MON", "day": "9", "mon": "NOV", "monthLabel": "November 2026", "opp": "Warren Central", "ha": "Home", "team": "JHB", "teamLong": "Junior High Boys", "time": "5:00pm", "note": ""}, {"iso": "2026-11-09", "dow": "MON", "day": "9", "mon": "NOV", "monthLabel": "November 2026", "opp": "Warren Central", "ha": "Home", "team": "JVB", "teamLong": "JV Boys", "time": "6:15pm", "note": ""}, {"iso": "2026-11-09", "dow": "MON", "day": "9", "mon": "NOV", "monthLabel": "November 2026", "opp": "Warren Central", "ha": "Home", "team": "JVG", "teamLong": "JV Girls", "time": "7:30pm", "note": ""}, {"iso": "2026-11-10", "dow": "TUE", "day": "10", "mon": "NOV", "monthLabel": "November 2026", "opp": "Brandon", "ha": "Away", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2026-11-10", "dow": "TUE", "day": "10", "mon": "NOV", "monthLabel": "November 2026", "opp": "Brandon", "ha": "Away", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2026-11-13", "dow": "FRI", "day": "13", "mon": "NOV", "monthLabel": "November 2026", "opp": "St. Patrick", "ha": "Away", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2026-11-13", "dow": "FRI", "day": "13", "mon": "NOV", "monthLabel": "November 2026", "opp": "St. Patrick", "ha": "Away", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2026-11-16", "dow": "MON", "day": "16", "mon": "NOV", "monthLabel": "November 2026", "opp": "Germantown", "ha": "Home", "team": "JHB", "teamLong": "Junior High Boys", "time": "4:30pm", "note": ""}, {"iso": "2026-11-16", "dow": "MON", "day": "16", "mon": "NOV", "monthLabel": "November 2026", "opp": "Germantown", "ha": "Home", "team": "JVB", "teamLong": "JV Boys", "time": "5:45pm", "note": ""}, {"iso": "2026-11-16", "dow": "MON", "day": "16", "mon": "NOV", "monthLabel": "November 2026", "opp": "Germantown", "ha": "Home", "team": "JVG", "teamLong": "JV Girls", "time": "7:00pm", "note": ""}, {"iso": "2026-11-17", "dow": "TUE", "day": "17", "mon": "NOV", "monthLabel": "November 2026", "opp": "Forest", "ha": "Home", "team": "JVG", "teamLong": "JV Girls", "time": "4:30pm", "note": ""}, {"iso": "2026-11-17", "dow": "TUE", "day": "17", "mon": "NOV", "monthLabel": "November 2026", "opp": "Forest", "ha": "Home", "team": "JHB", "teamLong": "Junior High Boys", "time": "5:45pm", "note": ""}, {"iso": "2026-11-17", "dow": "TUE", "day": "17", "mon": "NOV", "monthLabel": "November 2026", "opp": "Forest", "ha": "Home", "team": "VB", "teamLong": "Varsity Boys", "time": "7:00pm", "note": ""}, {"iso": "2026-11-21", "dow": "SAT", "day": "21", "mon": "NOV", "monthLabel": "November 2026", "opp": "New Albany", "ha": "Away", "team": "VB", "teamLong": "Varsity Boys", "time": "2:00pm", "note": ""}, {"iso": "2026-11-21", "dow": "SAT", "day": "21", "mon": "NOV", "monthLabel": "November 2026", "opp": "New Albany", "ha": "Away", "team": "JVB", "teamLong": "JV Boys", "time": "3:30pm", "note": ""}, {"iso": "2026-11-23", "dow": "MON", "day": "23", "mon": "NOV", "monthLabel": "November 2026", "opp": "Northwest Rankin", "ha": "Home", "team": "JHB", "teamLong": "Junior High Boys", "time": "2:00pm", "note": "Boys only"}, {"iso": "2026-11-23", "dow": "MON", "day": "23", "mon": "NOV", "monthLabel": "November 2026", "opp": "Northwest Rankin", "ha": "Home", "team": "JVB", "teamLong": "JV Boys", "time": "3:30pm", "note": "Boys only"}, {"iso": "2026-11-23", "dow": "MON", "day": "23", "mon": "NOV", "monthLabel": "November 2026", "opp": "Northwest Rankin", "ha": "Home", "team": "VB", "teamLong": "Varsity Boys", "time": "5:00pm", "note": "Boys only"}, {"iso": "2026-11-30", "dow": "MON", "day": "30", "mon": "NOV", "monthLabel": "November 2026", "opp": "Northwest Rankin", "ha": "Away", "team": "JHB", "teamLong": "Junior High Boys", "time": "4:30pm", "note": ""}, {"iso": "2026-11-30", "dow": "MON", "day": "30", "mon": "NOV", "monthLabel": "November 2026", "opp": "Northwest Rankin", "ha": "Away", "team": "JVB", "teamLong": "JV Boys", "time": "5:45pm", "note": ""}, {"iso": "2026-11-30", "dow": "MON", "day": "30", "mon": "NOV", "monthLabel": "November 2026", "opp": "Northwest Rankin", "ha": "Away", "team": "JVG", "teamLong": "JV Girls", "time": "7:00pm", "note": ""}, {"iso": "2026-12-01", "dow": "TUE", "day": "1", "mon": "DEC", "monthLabel": "December 2026", "opp": "St. Andrews", "ha": "Away", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2026-12-01", "dow": "TUE", "day": "1", "mon": "DEC", "monthLabel": "December 2026", "opp": "St. Andrews", "ha": "Away", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2026-12-03", "dow": "THU", "day": "3", "mon": "DEC", "monthLabel": "December 2026", "opp": "Oxford", "ha": "Home", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2026-12-03", "dow": "THU", "day": "3", "mon": "DEC", "monthLabel": "December 2026", "opp": "Oxford", "ha": "Home", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2026-12-04", "dow": "FRI", "day": "4", "mon": "DEC", "monthLabel": "December 2026", "opp": "Pearl", "ha": "Away", "team": "JHB", "teamLong": "Junior High Boys", "time": "4:30pm", "note": ""}, {"iso": "2026-12-04", "dow": "FRI", "day": "4", "mon": "DEC", "monthLabel": "December 2026", "opp": "Pearl", "ha": "Away", "team": "JVB", "teamLong": "JV Boys", "time": "5:45pm", "note": ""}, {"iso": "2026-12-04", "dow": "FRI", "day": "4", "mon": "DEC", "monthLabel": "December 2026", "opp": "Pearl", "ha": "Away", "team": "JVG", "teamLong": "JV Girls", "time": "7:00pm", "note": ""}, {"iso": "2026-12-07", "dow": "MON", "day": "7", "mon": "DEC", "monthLabel": "December 2026", "opp": "Brandon", "ha": "Away", "team": "JHB", "teamLong": "Junior High Boys", "time": "4:30pm", "note": ""}, {"iso": "2026-12-07", "dow": "MON", "day": "7", "mon": "DEC", "monthLabel": "December 2026", "opp": "Brandon", "ha": "Away", "team": "JVB", "teamLong": "JV Boys", "time": "5:45pm", "note": ""}, {"iso": "2026-12-07", "dow": "MON", "day": "7", "mon": "DEC", "monthLabel": "December 2026", "opp": "Brandon", "ha": "Away", "team": "JVG", "teamLong": "JV Girls", "time": "7:00pm", "note": ""}, {"iso": "2026-12-08", "dow": "TUE", "day": "8", "mon": "DEC", "monthLabel": "December 2026", "opp": "Germantown", "ha": "Away", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2026-12-08", "dow": "TUE", "day": "8", "mon": "DEC", "monthLabel": "December 2026", "opp": "Germantown", "ha": "Away", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2026-12-09", "dow": "WED", "day": "9", "mon": "DEC", "monthLabel": "December 2026", "opp": "Germantown", "ha": "Away", "team": "JHB", "teamLong": "Junior High Boys", "time": "4:30pm", "note": ""}, {"iso": "2026-12-09", "dow": "WED", "day": "9", "mon": "DEC", "monthLabel": "December 2026", "opp": "Germantown", "ha": "Away", "team": "JVB", "teamLong": "JV Boys", "time": "5:45pm", "note": ""}, {"iso": "2026-12-09", "dow": "WED", "day": "9", "mon": "DEC", "monthLabel": "December 2026", "opp": "Germantown", "ha": "Away", "team": "JVG", "teamLong": "JV Girls", "time": "7:00pm", "note": ""}, {"iso": "2026-12-10", "dow": "THU", "day": "10", "mon": "DEC", "monthLabel": "December 2026", "opp": "Madison Central", "ha": "Home", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2026-12-10", "dow": "THU", "day": "10", "mon": "DEC", "monthLabel": "December 2026", "opp": "Madison Central", "ha": "Home", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2026-12-12", "dow": "SAT", "day": "12", "mon": "DEC", "monthLabel": "December 2026", "opp": "Lewisburg", "ha": "Home", "team": "JVG", "teamLong": "JV Girls", "time": "10:00am", "note": "Girls only"}, {"iso": "2026-12-12", "dow": "SAT", "day": "12", "mon": "DEC", "monthLabel": "December 2026", "opp": "Lewisburg", "ha": "Home", "team": "VG", "teamLong": "Varsity Girls", "time": "11:30am", "note": "Girls only"}, {"iso": "2026-12-15", "dow": "TUE", "day": "15", "mon": "DEC", "monthLabel": "December 2026", "opp": "Starkville", "ha": "Away", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2026-12-15", "dow": "TUE", "day": "15", "mon": "DEC", "monthLabel": "December 2026", "opp": "Starkville", "ha": "Away", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2026-12-17", "dow": "THU", "day": "17", "mon": "DEC", "monthLabel": "December 2026", "opp": "Murrah", "ha": "Home", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2026-12-17", "dow": "THU", "day": "17", "mon": "DEC", "monthLabel": "December 2026", "opp": "Murrah", "ha": "Home", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2026-12-18", "dow": "FRI", "day": "18", "mon": "DEC", "monthLabel": "December 2026", "opp": "Lafayette", "ha": "Home", "team": "VG", "teamLong": "Varsity Girls", "time": "1:00pm", "note": ""}, {"iso": "2026-12-18", "dow": "FRI", "day": "18", "mon": "DEC", "monthLabel": "December 2026", "opp": "Lafayette", "ha": "Home", "team": "VB", "teamLong": "Varsity Boys", "time": "3:00pm", "note": ""}, {"iso": "2027-01-01", "dow": "FRI", "day": "1", "mon": "JAN", "monthLabel": "January 2027", "opp": "Gulfport", "ha": "Away", "team": "VB", "teamLong": "Varsity Boys", "time": "2:00pm", "note": "Coast showcase"}, {"iso": "2027-01-01", "dow": "FRI", "day": "1", "mon": "JAN", "monthLabel": "January 2027", "opp": "Biloxi", "ha": "Away", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": "Coast showcase"}, {"iso": "2027-01-02", "dow": "SAT", "day": "2", "mon": "JAN", "monthLabel": "January 2027", "opp": "Biloxi", "ha": "Away", "team": "VB", "teamLong": "Varsity Boys", "time": "10:00am", "note": "Coast showcase"}, {"iso": "2027-01-02", "dow": "SAT", "day": "2", "mon": "JAN", "monthLabel": "January 2027", "opp": "Gulfport", "ha": "Away", "team": "VG", "teamLong": "Varsity Girls", "time": "TBD", "note": "Coast showcase"}, {"iso": "2027-01-07", "dow": "THU", "day": "7", "mon": "JAN", "monthLabel": "January 2027", "opp": "Oxford", "ha": "Away", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2027-01-07", "dow": "THU", "day": "7", "mon": "JAN", "monthLabel": "January 2027", "opp": "Oxford", "ha": "Away", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2027-01-12", "dow": "TUE", "day": "12", "mon": "JAN", "monthLabel": "January 2027", "opp": "Germantown", "ha": "Home", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2027-01-12", "dow": "TUE", "day": "12", "mon": "JAN", "monthLabel": "January 2027", "opp": "Germantown", "ha": "Home", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2027-01-15", "dow": "FRI", "day": "15", "mon": "JAN", "monthLabel": "January 2027", "opp": "Madison Central", "ha": "Away", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2027-01-15", "dow": "FRI", "day": "15", "mon": "JAN", "monthLabel": "January 2027", "opp": "Madison Central", "ha": "Away", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2027-01-19", "dow": "TUE", "day": "19", "mon": "JAN", "monthLabel": "January 2027", "opp": "Starkville", "ha": "Home", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2027-01-19", "dow": "TUE", "day": "19", "mon": "JAN", "monthLabel": "January 2027", "opp": "Starkville", "ha": "Home", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2027-01-21", "dow": "THU", "day": "21", "mon": "JAN", "monthLabel": "January 2027", "opp": "Murrah", "ha": "Away", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2027-01-21", "dow": "THU", "day": "21", "mon": "JAN", "monthLabel": "January 2027", "opp": "Murrah", "ha": "Away", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}, {"iso": "2027-01-26", "dow": "TUE", "day": "26", "mon": "JAN", "monthLabel": "January 2027", "opp": "Northwest Rankin", "ha": "Away", "team": "VG", "teamLong": "Varsity Girls", "time": "5:30pm", "note": ""}, {"iso": "2027-01-26", "dow": "TUE", "day": "26", "mon": "JAN", "monthLabel": "January 2027", "opp": "Northwest Rankin", "ha": "Away", "team": "VB", "teamLong": "Varsity Boys", "time": "7:15pm", "note": ""}];
+
+const FILTERS = {
+  all:     ["VB","VG","JVB","JVG","JHB"],
+  boys:    ["VB","JVB","JHB"],
+  girls:   ["VG","JVG"],
+  varsity: ["VB","VG"],
+  jv:      ["JVB","JVG"],
+  jh:      ["JHB"]
+};
+
+const list  = document.getElementById('list');
+const count = document.getElementById('count');
+const today = new Date(); today.setHours(0,0,0,0);
+
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function render(key){
+  const teams = FILTERS[key];
+  const rows = GAMES.filter(g => teams.includes(g.team));
+  count.textContent = rows.length + (rows.length === 1 ? ' match' : ' matches');
+
+  if(!rows.length){
+    list.innerHTML = '<p class="empty">No matches scheduled for this group yet.</p>';
+    return;
+  }
+
+  let html = '', month = '', date = '', open = false;
+  rows.forEach(g => {
+    if(g.monthLabel !== month){
+      if(open){ html += '</div></div>'; open = false; date = ''; }
+      month = g.monthLabel;
+      html += '<h2 class="month">' + esc(month) + '</h2>';
+    }
+    if(g.iso !== date){
+      if(open){ html += '</div></div>'; }
+      date = g.iso;
+      const past = new Date(g.iso + 'T23:59') < today;
+      html += '<div class="day' + (past ? ' past' : '') + '">'
+            +   '<div class="dbox"><span class="dow">' + g.dow + '</span>'
+            +   '<span class="num">' + g.day + '</span></div>'
+            +   '<div class="fixtures">';
+      open = true;
+    }
+    const tbd = /tbd/i.test(g.time);
+    html += '<div class="fx-row">'
+          +   '<span class="chip">' + esc(g.team) + '</span>'
+          +   '<span class="opp">' + esc(g.opp) + '</span>'
+          +   '<span class="ha ' + (g.ha === 'Home' ? 'home' : 'away') + '">' + esc(g.ha) + '</span>'
+          +   '<span class="time' + (tbd ? ' tbd' : '') + '">' + esc(g.time || 'TBD') + '</span>'
+          + '</div>';
+    if(g.note){ html += '<div class="note">' + esc(g.note) + '</div>'; }
+  });
+  if(open){ html += '</div></div>'; }
+  list.innerHTML = html;
+}
+
+function renderBoard(){
+  const next = GAMES.find(g => new Date(g.iso + 'T23:59') >= today);
+  if(!next) return;
+  const d = new Date(next.iso + 'T12:00');
+  const days = Math.round((d - today) / 86400000);
+  document.getElementById('board-fx').textContent =
+    next.teamLong + (next.ha === 'Home' ? ' vs ' : ' at ') + next.opp;
+  document.getElementById('board-when').innerHTML =
+    '<b>' + d.toLocaleDateString(undefined,{weekday:'long', month:'long', day:'numeric'}) + '</b>'
+    + ' &middot; ' + (next.time || 'TBD')
+    + (days > 0 ? ' &middot; in ' + days + (days === 1 ? ' day' : ' days') : ' &middot; today');
+  document.getElementById('board').hidden = false;
+}
+
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-selected','false'));
+    btn.setAttribute('aria-selected','true');
+    render(btn.dataset.filter);
+  });
+});
+
+renderBoard();
+render('all');
+</script>
+</body>
+</html>
