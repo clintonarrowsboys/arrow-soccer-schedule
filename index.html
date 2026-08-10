@@ -10,147 +10,133 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0C0C0E;
-    --panel:#141418;
-    --line:#26262E;
-    --bone:#F2EFE9;
-    --muted:#8C8C97;
-    --red:#CB182D;
-    --red-dim:#7d0f1c;
+    --ink:#0C0C0E; --panel:#141418; --panel2:#1A1A20; --line:#26262E;
+    --bone:#F2EFE9; --muted:#8C8C97; --red:#CB182D;
     --display:'Archivo Black',system-ui,sans-serif;
     --body:'Archivo',system-ui,-apple-system,sans-serif;
     --mono:'IBM Plex Mono',ui-monospace,monospace;
   }
   *{box-sizing:border-box;}
   html{-webkit-text-size-adjust:100%;}
-  body{
-    margin:0;background:var(--ink);color:var(--bone);
-    font-family:var(--body);font-weight:600;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:860px;margin:0 auto;padding:0 18px;}
+  body{margin:0;background:var(--ink);color:var(--bone);font-family:var(--body);font-weight:600;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:880px;margin:0 auto;padding:0 18px;}
 
-  /* ---------- masthead ---------- */
-  header.mast{
-    border-bottom:1px solid var(--line);
-    background:linear-gradient(180deg,#111116 0%,var(--ink) 100%);
-  }
+  /* masthead */
+  header.mast{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#111116 0%,var(--ink) 100%);}
   .mast-in{display:flex;align-items:center;gap:16px;padding:22px 0 20px;}
   .crest{width:54px;height:auto;flex:0 0 auto;border-radius:3px;}
-  .word h1{
-    font-family:var(--display);font-size:clamp(26px,6.4vw,40px);
-    line-height:.92;letter-spacing:-.02em;margin:0;text-transform:uppercase;
-  }
+  .word h1{font-family:var(--display);font-size:clamp(26px,6.4vw,40px);line-height:.92;letter-spacing:-.02em;margin:0;text-transform:uppercase;}
   .word h1 em{font-style:normal;color:var(--red);}
-  .word p{
-    margin:7px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.18em;
-    text-transform:uppercase;color:var(--muted);
-  }
+  .word p{margin:7px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
 
-  /* ---------- next match board ---------- */
-  .board{
-    margin:20px 0 6px;border:1px solid var(--line);border-left:4px solid var(--red);
-    background:var(--panel);padding:16px 18px;
-    display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;
-  }
-  .board .flag{
-    font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--red);
-    text-transform:uppercase;width:100%;
-  }
-  .board .fx{font-family:var(--display);font-size:clamp(17px,4.4vw,23px);text-transform:uppercase;letter-spacing:-.01em;}
-  .board .when{font-family:var(--mono);font-size:13px;color:var(--muted);}
-  .board .when b{color:var(--bone);font-weight:500;}
+  /* next up */
+  .nextup{padding:22px 0 4px;}
+  .nu-head{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+  .nu-sub{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px;}
+  .nu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:8px;}
+  .nu-card{border:1px solid var(--line);border-top:3px solid var(--red);background:var(--panel);padding:11px 12px 12px;min-width:0;}
+  .nu-card.none{border-top-color:var(--line);opacity:.55;}
+  .nu-team{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;}
+  .nu-opp{font-family:var(--display);font-size:15px;text-transform:uppercase;letter-spacing:-.01em;line-height:1.15;margin:5px 0 6px;
+          overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .nu-meta{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.5;}
+  .nu-meta b{color:var(--bone);font-weight:500;}
+  .nu-tag{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:1px 4px;border-radius:2px;margin-left:6px;vertical-align:1px;}
+  .nu-tag.home{background:var(--red);color:#fff;}
+  .nu-tag.away{border:1px solid var(--line);color:var(--muted);}
 
-  /* ---------- tabs ---------- */
-  nav.tabs{
-    position:sticky;top:0;z-index:20;background:rgba(12,12,14,.94);
-    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-top:14px;
-  }
-  .tabs-in{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+  /* tabs */
+  nav.tabs{position:sticky;top:0;z-index:20;background:rgba(12,12,14,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-top:22px;}
+  .tabs-in{display:flex;overflow-x:auto;scrollbar-width:none;}
   .tabs-in::-webkit-scrollbar{display:none;}
-  .tab{
-    appearance:none;background:none;border:0;border-bottom:2px solid transparent;
-    color:var(--muted);font-family:var(--body);font-weight:700;font-size:13px;
-    letter-spacing:.04em;text-transform:uppercase;padding:14px 14px 12px;
-    white-space:nowrap;cursor:pointer;
-  }
+  .tab{appearance:none;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);font-family:var(--body);font-weight:700;
+       font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding:14px 14px 12px;white-space:nowrap;cursor:pointer;}
   .tab:first-child{padding-left:0;}
   .tab:hover{color:var(--bone);}
   .tab[aria-selected="true"]{color:var(--bone);border-bottom-color:var(--red);}
   .tab:focus-visible{outline:2px solid var(--red);outline-offset:-2px;}
 
-  /* ---------- schedule ---------- */
-  .count{
-    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--muted);padding:16px 0 4px;
-  }
-  .month{
-    font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;
-    color:var(--red);padding:22px 0 8px;border-bottom:1px solid var(--line);
-  }
+  /* view switch */
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0 4px;flex-wrap:wrap;}
+  .count{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+  .seg{display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden;}
+  .seg button{appearance:none;background:none;border:0;color:var(--muted);font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+              text-transform:uppercase;padding:7px 12px;cursor:pointer;}
+  .seg button[aria-pressed="true"]{background:var(--red);color:#fff;}
+  .seg button:focus-visible{outline:2px solid var(--red);outline-offset:-2px;}
+
+  /* list */
+  .month{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--red);padding:22px 0 8px;border-bottom:1px solid var(--line);}
   .day{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);}
   .day.past{opacity:.42;}
-  .dbox{
-    flex:0 0 58px;text-align:center;font-family:var(--mono);line-height:1.1;padding-top:2px;
-  }
+  .dbox{flex:0 0 58px;text-align:center;font-family:var(--mono);line-height:1.1;padding-top:2px;}
   .dbox .dow{display:block;font-size:10px;letter-spacing:.14em;color:var(--muted);}
   .dbox .num{display:block;font-size:26px;font-weight:600;letter-spacing:-.02em;}
   .fixtures{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:9px;}
   .fx-row{display:flex;align-items:center;gap:10px;min-width:0;}
-  .chip{
-    flex:0 0 auto;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;
-    border:1px solid var(--line);color:var(--muted);padding:3px 6px;border-radius:2px;
-    min-width:44px;text-align:center;
-  }
-  .opp{
-    flex:1 1 auto;min-width:0;font-size:15px;letter-spacing:-.01em;
-    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-  }
-  .ha{
-    font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
-    padding:2px 5px;border-radius:2px;flex:0 0 auto;
-  }
+  .chip{flex:0 0 auto;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;border:1px solid var(--line);
+        color:var(--muted);padding:3px 6px;border-radius:2px;min-width:44px;text-align:center;}
+  .opp{flex:1 1 auto;min-width:0;font-size:15px;letter-spacing:-.01em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .ha{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:2px 5px;border-radius:2px;flex:0 0 auto;}
   .ha.home{background:var(--red);color:#fff;}
   .ha.away{border:1px solid var(--line);color:var(--muted);}
-  .time{
-    flex:0 0 auto;font-family:var(--mono);font-size:14px;font-weight:500;
-    text-align:right;min-width:66px;font-variant-numeric:tabular-nums;
-  }
+  .time{flex:0 0 auto;font-family:var(--mono);font-size:14px;font-weight:500;text-align:right;min-width:66px;font-variant-numeric:tabular-nums;}
   .time.tbd{color:var(--muted);}
-  .note{
-    font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--red);margin-left:54px;
-  }
+  .note{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-left:54px;}
   .empty{padding:40px 0;color:var(--muted);font-size:14px;}
 
-  /* ---------- footer ---------- */
+  /* calendar */
+  .cal-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 0 12px;}
+  .cal-nav h2{font-family:var(--display);font-size:clamp(17px,4.6vw,24px);text-transform:uppercase;letter-spacing:-.01em;margin:0;}
+  .navbtn{appearance:none;background:none;border:1px solid var(--line);color:var(--bone);font-family:var(--mono);font-size:14px;
+          width:36px;height:36px;border-radius:2px;cursor:pointer;flex:0 0 auto;}
+  .navbtn:hover:not(:disabled){border-color:var(--red);color:var(--red);}
+  .navbtn:disabled{opacity:.3;cursor:default;}
+  .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .cal .dow-h{background:var(--ink);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+              color:var(--muted);text-align:center;padding:7px 0;}
+  .cal .cell{background:var(--panel);min-height:74px;padding:5px 4px 6px;}
+  .cal .cell.blank{background:var(--ink);}
+  .cal .cell.has{background:var(--panel2);}
+  .cal .dn{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;}
+  .cal .cell.has .dn{color:var(--bone);}
+  .cal .ev{margin-top:3px;font-family:var(--mono);font-size:9px;line-height:1.25;padding:2px 3px;border-radius:2px;
+           border-left:2px solid var(--red);background:rgba(203,24,45,.13);}
+  .cal .ev.away{border-left-color:var(--muted);background:rgba(255,255,255,.05);}
+  .cal .ev b{display:block;font-weight:600;letter-spacing:.04em;}
+  .cal .ev span{color:var(--muted);}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+          text-transform:uppercase;color:var(--muted);padding:12px 0 0;}
+  .legend i{display:inline-block;width:9px;height:9px;margin-right:5px;vertical-align:-1px;background:var(--red);}
+  .legend i.away{background:rgba(255,255,255,.18);}
+
+  /* footer */
   footer{border-top:1px solid var(--line);margin-top:34px;padding:24px 0 46px;}
   .motto{font-family:var(--display);text-transform:uppercase;font-size:20px;letter-spacing:-.01em;}
   .motto span{color:var(--red);}
   footer p{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.7;margin:10px 0 0;letter-spacing:.03em;}
-  .btn{
-    display:inline-block;margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--bone);border:1px solid var(--line);
-    background:none;padding:9px 14px;cursor:pointer;border-radius:2px;
-  }
+  .btn{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+       color:var(--bone);border:1px solid var(--line);background:none;padding:9px 14px;cursor:pointer;border-radius:2px;}
   .btn:hover{border-color:var(--red);color:var(--red);}
 
-  @media (max-width:520px){
-    .dbox{flex:0 0 46px;}
-    .dbox .num{font-size:22px;}
-    .opp{font-size:14px;}
-    .note{margin-left:0;}
+  @media (max-width:560px){
+    .dbox{flex:0 0 46px;} .dbox .num{font-size:22px;} .opp{font-size:14px;} .note{margin-left:0;}
+    .cal .cell{min-height:60px;padding:4px 2px 5px;}
+    .cal .ev{font-size:8px;padding:1px 2px;}
+    .nu-grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));}
   }
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 
   @media print{
     body{background:#fff;color:#000;}
-    nav.tabs,.btn,.board{display:none;}
+    nav.tabs,.btn,.seg,.navbtn{display:none;}
     .day{border-color:#ccc;} .month{color:#000;border-color:#000;}
     .chip,.ha.away{border-color:#999;color:#333;}
     .ha.home{background:#000;color:#fff;}
-    .dbox .dow,.count,footer p{color:#444;}
+    .dbox .dow,.count,footer p,.nu-meta{color:#444;}
     .day.past{opacity:1;}
+    .nu-card{border-color:#999;background:#fff;} .cal .cell{background:#fff;} .cal .cell.has{background:#f2f2f2;}
+    .cal .ev{background:#eee;color:#000;}
   }
 </style>
 </head>
@@ -166,13 +152,10 @@
   </div>
 </header>
 
-<div class="wrap">
-  <div class="board" id="board" hidden>
-    <span class="flag">Next match</span>
-    <span class="fx" id="board-fx"></span>
-    <span class="when" id="board-when"></span>
-  </div>
-</div>
+<section class="wrap nextup">
+  <div class="nu-head">Next game &mdash; by team</div>
+  <div id="nextup"></div>
+</section>
 
 <nav class="tabs" aria-label="Filter schedule by team">
   <div class="wrap tabs-in" role="tablist">
@@ -186,8 +169,30 @@
 </nav>
 
 <main class="wrap">
-  <div class="count" id="count"></div>
-  <div id="list"></div>
+  <div class="bar">
+    <div class="count" id="count"></div>
+    <div class="seg">
+      <button id="v-list" aria-pressed="true">List</button>
+      <button id="v-cal" aria-pressed="false">Calendar</button>
+    </div>
+  </div>
+
+  <div id="listview"><div id="list"></div></div>
+
+  <div id="calview" hidden>
+    <div class="cal-nav">
+      <button class="navbtn" id="cal-prev" aria-label="Previous month">&lsaquo;</button>
+      <h2 id="cal-title"></h2>
+      <button class="navbtn" id="cal-next" aria-label="Next month">&rsaquo;</button>
+    </div>
+    <div class="cal" id="cal"></div>
+    <p class="empty" id="cal-none" hidden>No games scheduled this month for the selected teams.</p>
+    <div class="legend">
+      <span><i></i>Home</span>
+      <span><i class="away"></i>Away</span>
+      <span>Times shown as a = am, p = pm</span>
+    </div>
+  </div>
 </main>
 
 <footer>
@@ -213,22 +218,69 @@ const FILTERS = {
   jv:      ["JVB","JVG"],
   jh:      ["JHB"]
 };
+const BOYS  = ["JHB","JVB","VB"];
+const GIRLS = ["JVG","VG"];
+const LONG  = {VB:"Varsity Boys", VG:"Varsity Girls", JVB:"JV Boys", JVG:"JV Girls", JHB:"Junior High Boys"};
 
-const list  = document.getElementById('list');
-const count = document.getElementById('count');
+// months to show in calendar view: Oct 2026 -> Feb 2027
+const MONTHS = [
+  {y:2026,m:9},{y:2026,m:10},{y:2026,m:11},{y:2027,m:0},{y:2027,m:1}
+];
+const MNAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+let curFilter = "all";
+let curView   = "list";
+let curMonth  = 0;
+
 const today = new Date(); today.setHours(0,0,0,0);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const isPast = iso => new Date(iso + 'T23:59') < today;
+const shortTime = t => (t && !/tbd/i.test(t)) ? t.replace(/\s*([ap])m$/i, '$1') : 'TBD';
 
-function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+/* ---------- next game per team ---------- */
+function renderNextUp(){
+  const teams = FILTERS[curFilter];
+  const boys  = BOYS.filter(t => teams.includes(t));
+  const girls = GIRLS.filter(t => teams.includes(t));
 
-function render(key){
-  const teams = FILTERS[key];
-  const rows = GAMES.filter(g => teams.includes(g.team));
-  count.textContent = rows.length + (rows.length === 1 ? ' match' : ' matches');
+  const card = code => {
+    const g = GAMES.find(x => x.team === code && !isPast(x.iso));
+    if(!g){
+      return '<div class="nu-card none"><div class="nu-team">' + code + '</div>'
+           + '<div class="nu-opp">Season complete</div>'
+           + '<div class="nu-meta">No games remaining</div></div>';
+    }
+    const d = new Date(g.iso + 'T12:00');
+    const days = Math.round((d - today) / 86400000);
+    const when = days === 0 ? 'Today' : (days === 1 ? 'Tomorrow' : 'In ' + days + ' days');
+    return '<div class="nu-card">'
+         +   '<div class="nu-team">' + code + ' &middot; ' + esc(LONG[code]) + '</div>'
+         +   '<div class="nu-opp">' + esc(g.opp) + '<span class="nu-tag ' + (g.ha==='Home'?'home':'away') + '">' + esc(g.ha) + '</span></div>'
+         +   '<div class="nu-meta"><b>' + d.toLocaleDateString(undefined,{weekday:'short', month:'short', day:'numeric'})
+         +   '</b> &middot; ' + esc(g.time || 'TBD') + '<br>' + when + '</div>'
+         + '</div>';
+  };
 
-  if(!rows.length){
-    list.innerHTML = '<p class="empty">No matches scheduled for this group yet.</p>';
-    return;
+  let html = '';
+  if(boys.length){
+    html += (girls.length ? '<div class="nu-sub">Boys</div>' : '')
+          + '<div class="nu-grid">' + boys.map(card).join('') + '</div>';
   }
+  if(girls.length){
+    html += (boys.length ? '<div class="nu-sub">Girls</div>' : '')
+          + '<div class="nu-grid">' + girls.map(card).join('') + '</div>';
+  }
+  document.getElementById('nextup').innerHTML = html;
+}
+
+/* ---------- list view ---------- */
+function renderList(){
+  const teams = FILTERS[curFilter];
+  const rows  = GAMES.filter(g => teams.includes(g.team));
+  const list  = document.getElementById('list');
+  document.getElementById('count').textContent = rows.length + (rows.length === 1 ? ' match' : ' matches');
+
+  if(!rows.length){ list.innerHTML = '<p class="empty">No matches scheduled for this group yet.</p>'; return; }
 
   let html = '', month = '', date = '', open = false;
   rows.forEach(g => {
@@ -240,10 +292,8 @@ function render(key){
     if(g.iso !== date){
       if(open){ html += '</div></div>'; }
       date = g.iso;
-      const past = new Date(g.iso + 'T23:59') < today;
-      html += '<div class="day' + (past ? ' past' : '') + '">'
-            +   '<div class="dbox"><span class="dow">' + g.dow + '</span>'
-            +   '<span class="num">' + g.day + '</span></div>'
+      html += '<div class="day' + (isPast(g.iso) ? ' past' : '') + '">'
+            +   '<div class="dbox"><span class="dow">' + g.dow + '</span><span class="num">' + g.day + '</span></div>'
             +   '<div class="fixtures">';
       open = true;
     }
@@ -260,30 +310,90 @@ function render(key){
   list.innerHTML = html;
 }
 
-function renderBoard(){
-  const next = GAMES.find(g => new Date(g.iso + 'T23:59') >= today);
-  if(!next) return;
-  const d = new Date(next.iso + 'T12:00');
-  const days = Math.round((d - today) / 86400000);
-  document.getElementById('board-fx').textContent =
-    next.teamLong + (next.ha === 'Home' ? ' vs ' : ' at ') + next.opp;
-  document.getElementById('board-when').innerHTML =
-    '<b>' + d.toLocaleDateString(undefined,{weekday:'long', month:'long', day:'numeric'}) + '</b>'
-    + ' &middot; ' + (next.time || 'TBD')
-    + (days > 0 ? ' &middot; in ' + days + (days === 1 ? ' day' : ' days') : ' &middot; today');
-  document.getElementById('board').hidden = false;
+/* ---------- calendar view ---------- */
+function renderCalendar(){
+  const teams = FILTERS[curFilter];
+  const rows  = GAMES.filter(g => teams.includes(g.team));
+  document.getElementById('count').textContent = rows.length + (rows.length === 1 ? ' match' : ' matches');
+
+  const byDate = {};
+  rows.forEach(g => { (byDate[g.iso] = byDate[g.iso] || []).push(g); });
+
+  const {y, m} = MONTHS[curMonth];
+  document.getElementById('cal-title').textContent = MNAMES[m] + ' ' + y;
+  document.getElementById('cal-prev').disabled = (curMonth === 0);
+  document.getElementById('cal-next').disabled = (curMonth === MONTHS.length - 1);
+
+  const first  = new Date(y, m, 1).getDay();
+  const ndays  = new Date(y, m + 1, 0).getDate();
+  const heads  = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+  let html = heads.map(h => '<div class="dow-h">' + h + '</div>').join('');
+  for(let i = 0; i < first; i++){ html += '<div class="cell blank"></div>'; }
+
+  for(let d = 1; d <= ndays; d++){
+    const iso = y + '-' + String(m+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+    const evs = byDate[iso] || [];
+    html += '<div class="cell' + (evs.length ? ' has' : '') + '">'
+          +   '<div class="dn">' + d + '</div>';
+    evs.forEach(g => {
+      html += '<div class="ev' + (g.ha === 'Away' ? ' away' : '') + '">'
+            +   '<b>' + esc(g.team) + '</b><span>' + esc(shortTime(g.time)) + '</span>'
+            + '</div>';
+    });
+    html += '</div>';
+  }
+  const cells = first + ndays;
+  const pad = (7 - (cells % 7)) % 7;
+  for(let i = 0; i < pad; i++){ html += '<div class="cell blank"></div>'; }
+
+  document.getElementById('cal').innerHTML = html;
+
+  let monthCount = 0;
+  for(const iso in byDate){
+    const p = iso.split('-');
+    if(+p[0] === y && +p[1] === m + 1){ monthCount += byDate[iso].length; }
+  }
+  document.getElementById('cal-none').hidden = (monthCount > 0);
+}
+
+/* ---------- wiring ---------- */
+function renderAll(){
+  renderNextUp();
+  if(curView === 'list'){ renderList(); } else { renderCalendar(); }
 }
 
 document.querySelectorAll('.tab').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-selected','false'));
     btn.setAttribute('aria-selected','true');
-    render(btn.dataset.filter);
+    curFilter = btn.dataset.filter;
+    renderAll();
   });
 });
 
-renderBoard();
-render('all');
+function setView(v){
+  curView = v;
+  document.getElementById('v-list').setAttribute('aria-pressed', v === 'list');
+  document.getElementById('v-cal').setAttribute('aria-pressed', v === 'cal');
+  document.getElementById('listview').hidden = (v !== 'list');
+  document.getElementById('calview').hidden  = (v !== 'cal');
+  renderAll();
+}
+document.getElementById('v-list').addEventListener('click', () => setView('list'));
+document.getElementById('v-cal').addEventListener('click', () => setView('cal'));
+
+document.getElementById('cal-prev').addEventListener('click', () => { if(curMonth > 0){ curMonth--; renderCalendar(); } });
+document.getElementById('cal-next').addEventListener('click', () => { if(curMonth < MONTHS.length - 1){ curMonth++; renderCalendar(); } });
+
+// open calendar on the current month if the season is underway
+(function initMonth(){
+  const now = new Date();
+  const idx = MONTHS.findIndex(x => x.y === now.getFullYear() && x.m === now.getMonth());
+  if(idx > -1){ curMonth = idx; }
+})();
+
+renderAll();
 </script>
 </body>
 </html>
